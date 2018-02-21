@@ -39,7 +39,7 @@
                                         <color key="backgroundColor" red="0.62122880690000004" green="0.89475661760000003" blue="0.99962896109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TI4-wb-8kB">
                                         <rect key="frame" x="106.66666666666669" y="467" width="200" height="30"/>
@@ -65,8 +65,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="Signin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h8a-S6-E6S"/>
-                                            <segue destination="BvC-VA-Oi9" kind="show" id="SCC-Sf-guP"/>
+                                            <segue destination="BvC-VA-Oi9" kind="show" id="VlT-Qd-BrL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -120,7 +119,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXw-yT-ch4">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IYM-kd-QqH">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.png" translatesAutoresizingMaskIntoConstraints="NO" id="IYM-kd-QqH">
                                         <rect key="frame" x="134.66666666666666" y="45" width="144.99999999999997" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="145" id="URr-Xm-lbA"/>
@@ -243,4 +242,7 @@
             <point key="canvasLocation" x="-174" y="81"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="info.png" width="28" height="28"/>
+    </resources>
 </document>

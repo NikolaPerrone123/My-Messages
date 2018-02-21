@@ -21,7 +21,7 @@ class FireBaseHelper {
         
     }
     
-    func signIn(email : String, password : String, parm : NSDictionary, CompletionHandler:@escaping(_ error : Error?) -> Void) {
+    func createUser(email : String, password : String, parm : NSDictionary, CompletionHandler:@escaping(_ error : Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if error == nil {
                 print("Successfull registration")
@@ -43,6 +43,12 @@ class FireBaseHelper {
     }
     
     func logIn(email : String, password : String, CompletionHandler:@escaping(_ error : Error?) -> Void) {
-        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if (error == nil){
+                CompletionHandler(error)
+            } else {
+                CompletionHandler(error)
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 import Firebase
 
 class LoginViewController: UIViewController {
@@ -21,11 +22,17 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
-        
-    }
-    
-    @IBAction func Signin(_ sender: Any) {
-        
+        SVProgressHUD.show()
+        FireBaseHelper.sharedInstance.logIn(email: emailTextField.text!, password: passwordTextFiled.text!) { (error) in
+            if error == nil {
+                // Next page
+                SVProgressHUD.dismiss()
+            } else {
+                // Pop Up for error
+                SVProgressHUD.dismiss()
+                print("Error login\(String(describing: error))")
+            }
+        }
     }
     
 }

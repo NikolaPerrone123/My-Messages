@@ -27,6 +27,14 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
 
        setGestureForImage()
        Utilites.buttonWithRadius(button: signUpButton)
+        
+        FireBaseHelper.sharedInstance.getUserById(userId: "2") { (error, user) in
+            if error == nil {
+                
+            } else {
+                
+            }
+        }
     }
     
     @IBAction func SignIn(_ sender: Any) {
@@ -101,7 +109,7 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
     func uplaodImage(){
         let nsId = NSUUID()
         SVProgressHUD.show()
-        FireBaseHelper.sharedInstance.uploadImage(image: imageData, imageName: nsId.uuidString) { (error) in
+        FireBaseHelper.sharedInstance.uploadImage(image: imageData, imageName: "newImage") { (error) in
             if error == nil {
                 SVProgressHUD.dismiss()
             } else {

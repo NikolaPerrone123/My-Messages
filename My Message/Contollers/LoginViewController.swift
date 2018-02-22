@@ -21,6 +21,16 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
      
         Utilites.buttonWithRadius(button: loginButton)
+        
+        let user = UserModel(name: "Pear", surname: "Peric", userName: "Pera Peric", email: "pera@yahoo.com")
+        FireBaseHelper.sharedInstance.createUserInDB(userModel: user) { (error) in
+            if error == nil {
+                
+            } else {
+                
+            }
+        }
+        
     }
     
     @IBAction func login(_ sender: Any) {
@@ -29,6 +39,7 @@ class LoginViewController: UIViewController {
             if error == nil {
                 // Next page
                 SVProgressHUD.dismiss()
+            
             } else {
                 // UIAlert error
                 SVProgressHUD.dismiss()

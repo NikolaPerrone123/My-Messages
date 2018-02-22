@@ -17,6 +17,10 @@ class UserModel {
     var password : String!
     var image : UIImage!
     
+    init() {
+        
+    }
+    
     init(name : String, surname : String, userName : String, email : String) {
         self.name = name
         self.surname = surname
@@ -31,5 +35,12 @@ class UserModel {
         mutableDictionary.setValue(userName, forKey: "username")
         mutableDictionary.setValue(email, forKey: "email")
         return mutableDictionary.copy() as! NSDictionary
+    }
+    
+    func initUserFormDictionary(dictionary : NSDictionary) {
+        self.name = dictionary.value(forKey: "name") as? String ?? ""
+        self.surname = dictionary.value(forKey: "surname") as? String ?? ""
+        self.userName = dictionary.value(forKey: "username") as? String ?? ""
+        self.email = dictionary.value(forKey: "email") as? String ?? ""
     }
 }

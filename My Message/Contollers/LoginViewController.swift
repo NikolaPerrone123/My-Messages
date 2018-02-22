@@ -15,10 +15,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextFiled: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
+        Utilites.buttonWithRadius(button: loginButton)
     }
     
     @IBAction func login(_ sender: Any) {
@@ -28,8 +30,9 @@ class LoginViewController: UIViewController {
                 // Next page
                 SVProgressHUD.dismiss()
             } else {
-                // Pop Up for error
+                // UIAlert error
                 SVProgressHUD.dismiss()
+                Utilites.errorAlert(title: "Error", message: "Can not register now", controller: self)
                 print("Error login\(String(describing: error))")
             }
         }

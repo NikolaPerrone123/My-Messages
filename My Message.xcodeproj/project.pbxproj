@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BFC43C6203EB44900A0C3AF /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC43C5203EB44900A0C3AF /* Utilites.swift */; };
 		93131D4920385C9600088155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93131D4820385C9600088155 /* AppDelegate.swift */; };
 		93131D4B20385C9600088155 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93131D4A20385C9600088155 /* LoginViewController.swift */; };
 		93131D4E20385C9600088155 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93131D4C20385C9600088155 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		2D7DA94DAEC79BAC069DF1DB /* Pods-My Message.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Message.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Message/Pods-My Message.release.xcconfig"; sourceTree = "<group>"; };
 		4201BAD7F2CD824AA213BF26 /* Pods-My Message.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Message.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Message/Pods-My Message.debug.xcconfig"; sourceTree = "<group>"; };
 		6329FF28AA1511B5D4DA0AD0 /* Pods_My_Message.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Message.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BFC43C5203EB44900A0C3AF /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
 		93131D4520385C9600088155 /* My Message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Message.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93131D4820385C9600088155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93131D4A20385C9600088155 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BFC43C4203EB42E00A0C3AF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8BFC43C5203EB44900A0C3AF /* Utilites.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		93131D3C20385C9600088155 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +81,7 @@
 		93131D4720385C9600088155 /* My Message */ = {
 			isa = PBXGroup;
 			children = (
+				8BFC43C4203EB42E00A0C3AF /* Utilities */,
 				934DA7F4203DDF8500527F0B /* API */,
 				934DA7ED203DAA4900527F0B /* Views */,
 				934DA7EC203DAA2200527F0B /* Support Files */,
@@ -289,6 +300,7 @@
 				934DA7EF203DCAB500527F0B /* UserModel.swift in Sources */,
 				934DA7F6203DDFA700527F0B /* FireBaseHelper.swift in Sources */,
 				93131D4920385C9600088155 /* AppDelegate.swift in Sources */,
+				8BFC43C6203EB44900A0C3AF /* Utilites.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

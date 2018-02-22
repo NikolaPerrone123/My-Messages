@@ -9,3 +9,4 @@
 import Foundation
 
 let userChild : String = "User"
+let userImagePath : String = "userImages"

@@ -16,9 +16,19 @@ class FireBaseHelper {
         return instance
     }()
     
-    
-    func uploadImage(image: NSData, CompletionHandler:@escaping(_ error : Error?) -> Void) {
-        
+    func uploadImage(image: Data, imageName : String, CompletionHandler:@escaping(_ error : Error?) -> Void) {
+        let storageRef = Storage.storage().reference(withPath: userImagePath + imageName)
+        let uplaodMetaData = StorageMetadata()
+        uplaodMetaData.contentType = "image/jpeg"
+        storageRef.putData(image, metadata: uplaodMetaData) { (metaData, error) in
+            if error == nil {
+                print("Image successfull uplaoded")
+                CompletionHandler(error)
+            } else {
+                print("Image can't be uploaded\(String(describing: error))")
+                CompletionHandler(error)
+            }
+        }
     }
     
     func createUser(email : String, password : String, parm : NSDictionary, CompletionHandler:@escaping(_ error : Error?) -> Void) {

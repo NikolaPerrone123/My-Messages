@@ -18,11 +18,15 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    fileprivate var imageData = Data()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
        setGestureForImage()
+       Utilites.buttonWithRadius(button: signUpButton)
     }
     
     @IBAction func SignIn(_ sender: Any) {
@@ -41,9 +45,12 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // MARK - Delegate picker contorller
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        userImage.contentMode = .scaleAspectFit
-        userImage.image = chosenImage
+        if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            userImage.contentMode = .scaleAspectFit
+            userImage.image = chosenImage
+            imageData = UIImageJPEGRepresentation(userImage.image!, 0.8)!
+            uplaodImage()
+        }
         dismiss(animated:true, completion: nil)
     }
     
@@ -51,14 +58,20 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK - UITapGestureRecognizer for image
     func setGestureForImage(){
         userImage.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.chooseImage(_:)))
         userImage.addGestureRecognizer(gesture)
     }
     
+    @objc func chooseImage(_ sender: UITapGestureRecognizer){
+        popUpForImagePicker()
+    }
+    
     func popUpForImagePicker() {
         let picker = UIImagePickerController()
+        picker.delegate = self
         let popUp = UIAlertController(title: "Choose image", message: "", preferredStyle: .actionSheet)
         let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (UIAlertAction) in
             picker.allowsEditing = false
@@ -66,20 +79,35 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
             picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
             self.present(picker, animated: true, completion: nil)
         }
+        
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (UIAlertAction) in
             picker.allowsEditing = false
-            picker.sourceType = .photoLibrary
+            picker.sourceType = .camera
             picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
             self.present(picker, animated: true, completion: nil)
         }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
         popUp.addAction(photoLibraryAction)
         popUp.addAction(cameraAction)
+        popUp.addAction(cancelAction)
         present(popUp, animated: true, completion: nil)
     }
     
-    // MARK - Gesture action for image
-    @objc func chooseImage(_ sender: UITapGestureRecognizer){
-        popUpForImagePicker()
+    // MARK - Upload image
+    func uplaodImage(){
+        let nsId = NSUUID()
+        SVProgressHUD.show()
+        FireBaseHelper.sharedInstance.uploadImage(image: imageData, imageName: nsId.uuidString) { (error) in
+            if error == nil {
+                SVProgressHUD.dismiss()
+            } else {
+                SVProgressHUD.dismiss()
+                Utilites.errorAlert(title: "Error", message: "Can not upload image, try later", controller: self)
+            }
+        }
     }
-    
 }

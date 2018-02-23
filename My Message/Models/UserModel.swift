@@ -18,7 +18,10 @@ class UserModel {
     var image : UIImage!
     
     init() {
-        
+        self.name = ""
+        self.surname = ""
+        self.userName = ""
+        self.email = ""
     }
     
     init(name : String, surname : String, userName : String, email : String) {
@@ -42,5 +45,6 @@ class UserModel {
         self.surname = dictionary.value(forKey: "surname") as? String ?? ""
         self.userName = dictionary.value(forKey: "username") as? String ?? ""
         self.email = dictionary.value(forKey: "email") as? String ?? ""
+        print(self.email)
     }
 }

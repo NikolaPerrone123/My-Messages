@@ -22,12 +22,14 @@ class LoginViewController: UIViewController {
      
         Utilites.buttonWithRadius(button: loginButton)
         
-        let user = UserModel(name: "Pear", surname: "Peric", userName: "Pera Peric", email: "pera@yahoo.com")
-        FireBaseHelper.sharedInstance.createUserInDB(userModel: user) { (error) in
+//        let vc = storyboard?.instantiateViewController(withIdentifier: homeVC)
+//        self.navigationController?.pushViewController(vc!, animated: true)
+
+        FireBaseHelper.sharedInstance.getUserByEmail(email: "djoledjokic@live.com") { (error, model) in
             if error == nil {
-                
+                print(model as UserModel)
             } else {
-                
+                print(error as Any)
             }
         }
         

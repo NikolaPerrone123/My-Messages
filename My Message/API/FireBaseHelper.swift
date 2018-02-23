@@ -50,13 +50,21 @@ class FireBaseHelper {
         }
     }
     
-    func getUserById(userId : String, CompletionHandler:@escaping(_ error : Error?, _ user : UserModel) -> Void) {
-        let refDB = Database.database().reference(withPath: "users").child(userId)
+    func getUserByEmail(email : String, CompletionHandler:@escaping(_ error : Error?, _ user : UserModel) -> Void) {
+        let refDB = Database.database().reference(withPath: "users")
         refDB.observeSingleEvent(of: .value) { (snapshot) in
             if let dictionary = snapshot.value as? NSDictionary {
-                let user = UserModel()
-                user.initUserFormDictionary(dictionary: dictionary)
-                CompletionHandler(nil, user)
+                let keys = dictionary.allKeys
+                for oneKey in keys {
+                    if let key = oneKey as? String {
+                        let userDictionary = dictionary.value(forKey: key)
+                        let user = UserModel()
+                        user.initUserFormDictionary(dictionary: userDictionary as! NSDictionary)
+                        if (user.email == email){
+                            CompletionHandler(nil, user)
+                        }
+                    }
+                }
             }
         }
     }

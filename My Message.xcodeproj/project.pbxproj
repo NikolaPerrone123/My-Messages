@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BADC614204059AA00903803 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BADC613204059A900903803 /* GoogleService-Info.plist */; };
+		8BE3FF412040194F009966B7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE3FF402040194F009966B7 /* HomeViewController.swift */; };
+		8BE3FF4520401998009966B7 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE3FF4420401998009966B7 /* ContactsViewController.swift */; };
+		8BE3FF47204019AA009966B7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE3FF46204019AA009966B7 /* SettingsViewController.swift */; };
+		8BE3FF4D204029F9009966B7 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE3FF4B204029F9009966B7 /* ContactsTableViewCell.swift */; };
+		8BE3FF4E204029F9009966B7 /* ContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BE3FF4C204029F9009966B7 /* ContactsTableViewCell.xib */; };
+		8BE3FF5120403C38009966B7 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE3FF4F20403C38009966B7 /* ContactTableViewCell.swift */; };
+		8BE3FF5220403C38009966B7 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BE3FF5020403C38009966B7 /* ContactTableViewCell.xib */; };
+		8BE3FF5420404234009966B7 /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE3FF5320404234009966B7 /* ContactInfoViewController.swift */; };
 		8BFC43C6203EB44900A0C3AF /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC43C5203EB44900A0C3AF /* Utilites.swift */; };
 		93131D4920385C9600088155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93131D4820385C9600088155 /* AppDelegate.swift */; };
 		93131D4B20385C9600088155 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93131D4A20385C9600088155 /* LoginViewController.swift */; };
 		93131D4E20385C9600088155 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93131D4C20385C9600088155 /* Main.storyboard */; };
 		93131D5020385C9600088155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93131D4F20385C9600088155 /* Assets.xcassets */; };
 		93131D5320385C9600088155 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93131D5120385C9600088155 /* LaunchScreen.storyboard */; };
-		93408681203DA63D00321A55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93408680203DA63D00321A55 /* GoogleService-Info.plist */; };
 		934DA7EF203DCAB500527F0B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934DA7EE203DCAB500527F0B /* UserModel.swift */; };
 		934DA7F1203DCF0F00527F0B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934DA7F0203DCF0F00527F0B /* SignInViewController.swift */; };
 		934DA7F3203DD83300527F0B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934DA7F2203DD83300527F0B /* Constant.swift */; };
@@ -25,6 +33,15 @@
 		2D7DA94DAEC79BAC069DF1DB /* Pods-My Message.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Message.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Message/Pods-My Message.release.xcconfig"; sourceTree = "<group>"; };
 		4201BAD7F2CD824AA213BF26 /* Pods-My Message.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Message.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Message/Pods-My Message.debug.xcconfig"; sourceTree = "<group>"; };
 		6329FF28AA1511B5D4DA0AD0 /* Pods_My_Message.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Message.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BADC613204059A900903803 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8BE3FF402040194F009966B7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8BE3FF4420401998009966B7 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		8BE3FF46204019AA009966B7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8BE3FF4B204029F9009966B7 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		8BE3FF4C204029F9009966B7 /* ContactsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsTableViewCell.xib; sourceTree = "<group>"; };
+		8BE3FF4F20403C38009966B7 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		8BE3FF5020403C38009966B7 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		8BE3FF5320404234009966B7 /* ContactInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
 		8BFC43C5203EB44900A0C3AF /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
 		93131D4520385C9600088155 /* My Message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Message.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93131D4820385C9600088155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +50,6 @@
 		93131D4F20385C9600088155 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93131D5220385C9600088155 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93131D5420385C9600088155 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93408680203DA63D00321A55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		934DA7EE203DCAB500527F0B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		934DA7F0203DCF0F00527F0B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		934DA7F2203DD83300527F0B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -52,6 +68,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BE3FF4A204029CD009966B7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8BE3FF4B204029F9009966B7 /* ContactsTableViewCell.swift */,
+				8BE3FF4C204029F9009966B7 /* ContactsTableViewCell.xib */,
+				8BE3FF4F20403C38009966B7 /* ContactTableViewCell.swift */,
+				8BE3FF5020403C38009966B7 /* ContactTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		8BFC43C4203EB42E00A0C3AF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,13 +109,13 @@
 			isa = PBXGroup;
 			children = (
 				8BFC43C4203EB42E00A0C3AF /* Utilities */,
-				934DA7F4203DDF8500527F0B /* API */,
-				934DA7ED203DAA4900527F0B /* Views */,
 				934DA7EC203DAA2200527F0B /* Support Files */,
+				934DA7F4203DDF8500527F0B /* API */,
 				934DA7EB203DAA1800527F0B /* Models */,
+				934DA7ED203DAA4900527F0B /* Views */,
 				934DA7EA203DAA0D00527F0B /* Contollers */,
 				93131D5420385C9600088155 /* Info.plist */,
-				93408680203DA63D00321A55 /* GoogleService-Info.plist */,
+				8BADC613204059A900903803 /* GoogleService-Info.plist */,
 			);
 			path = "My Message";
 			sourceTree = "<group>";
@@ -99,6 +126,10 @@
 				93131D4820385C9600088155 /* AppDelegate.swift */,
 				93131D4A20385C9600088155 /* LoginViewController.swift */,
 				934DA7F0203DCF0F00527F0B /* SignInViewController.swift */,
+				8BE3FF402040194F009966B7 /* HomeViewController.swift */,
+				8BE3FF4420401998009966B7 /* ContactsViewController.swift */,
+				8BE3FF46204019AA009966B7 /* SettingsViewController.swift */,
+				8BE3FF5320404234009966B7 /* ContactInfoViewController.swift */,
 			);
 			path = Contollers;
 			sourceTree = "<group>";
@@ -123,6 +154,7 @@
 		934DA7ED203DAA4900527F0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8BE3FF4A204029CD009966B7 /* Cells */,
 				93131D4C20385C9600088155 /* Main.storyboard */,
 				93131D5120385C9600088155 /* LaunchScreen.storyboard */,
 			);
@@ -216,10 +248,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE3FF5220403C38009966B7 /* ContactTableViewCell.xib in Resources */,
 				93131D5320385C9600088155 /* LaunchScreen.storyboard in Resources */,
-				93408681203DA63D00321A55 /* GoogleService-Info.plist in Resources */,
 				93131D5020385C9600088155 /* Assets.xcassets in Resources */,
 				93131D4E20385C9600088155 /* Main.storyboard in Resources */,
+				8BE3FF4E204029F9009966B7 /* ContactsTableViewCell.xib in Resources */,
+				8BADC614204059AA00903803 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,10 +328,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE3FF5120403C38009966B7 /* ContactTableViewCell.swift in Sources */,
+				8BE3FF4D204029F9009966B7 /* ContactsTableViewCell.swift in Sources */,
 				934DA7F1203DCF0F00527F0B /* SignInViewController.swift in Sources */,
+				8BE3FF5420404234009966B7 /* ContactInfoViewController.swift in Sources */,
 				93131D4B20385C9600088155 /* LoginViewController.swift in Sources */,
 				934DA7F3203DD83300527F0B /* Constant.swift in Sources */,
+				8BE3FF47204019AA009966B7 /* SettingsViewController.swift in Sources */,
+				8BE3FF412040194F009966B7 /* HomeViewController.swift in Sources */,
 				934DA7EF203DCAB500527F0B /* UserModel.swift in Sources */,
+				8BE3FF4520401998009966B7 /* ContactsViewController.swift in Sources */,
 				934DA7F6203DDFA700527F0B /* FireBaseHelper.swift in Sources */,
 				93131D4920385C9600088155 /* AppDelegate.swift in Sources */,
 				8BFC43C6203EB44900A0C3AF /* Utilites.swift in Sources */,

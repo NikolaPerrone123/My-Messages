@@ -27,14 +27,6 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
 
        setGestureForImage()
        Utilites.buttonWithRadius(button: signUpButton)
-        
-        FireBaseHelper.sharedInstance.getUserById(userId: "2") { (error, user) in
-            if error == nil {
-                
-            } else {
-                
-            }
-        }
     }
     
     @IBAction func SignIn(_ sender: Any) {

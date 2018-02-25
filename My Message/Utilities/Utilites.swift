@@ -23,4 +23,16 @@ class Utilites {
     static func buttonWithRadius(button : UIButton){
         button.layer.cornerRadius = 15
     }
+    
+    static func setOverly(view : UIView) -> UIView {
+        let overly = UIView(frame: view.frame)
+        overly.backgroundColor = UIColor.black.withAlphaComponent(0.35)
+        overly.isHidden = true
+        view.addSubview(overly)
+        return overly
+    }
+    
+    static func showOverly(isOverlay : Bool, view : UIView) {
+        view.isHidden = isOverlay ? false : true
+    }
 }

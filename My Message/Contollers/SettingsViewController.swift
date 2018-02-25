@@ -9,7 +9,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    @IBOutlet weak var signOutButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +22,19 @@ class SettingsViewController: UIViewController {
     }
     
     func setViews(){
+        Utilites.buttonWithRadius(button: signOutButton)
+    }
+    
+    @IBAction func signOut(_ sender: Any) {
+        FireBaseHelper.sharedInstance.signOut { (error) in
+            if error == nil {
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: loginVC)
+                appDelegate.window?.rootViewController = vc
+                appDelegate.window?.makeKeyAndVisible()
+                Defaults.removeUserAuth()
+            }
+        }
         
     }
 }

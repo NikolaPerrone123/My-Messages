@@ -13,11 +13,34 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    fileprivate var userDefaults = UserDefaults.standard
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        let emailDefaults = Defaults.getEmail()
+        let passDefaults = Defaults.getPassword()
+        
+        
+        if let email = emailDefaults, let pass = passDefaults {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            self.window?.rootViewController = storyBoard.instantiateViewController(withIdentifier: startUpVC)
+            self.window?.makeKeyAndVisible()
+                FireBaseHelper.sharedInstance.logIn(email: email, password: pass, CompletionHandler: { (error) in
+                
+                if error == nil {
+                    let vc = storyBoard.instantiateViewController(withIdentifier: homeVC)
+                    self.window?.rootViewController = vc
+                    self.window?.makeKeyAndVisible()
+                } else {
+                    let vc = storyBoard.instantiateViewController(withIdentifier: loginVC)
+                    self.window?.rootViewController = vc
+                    self.window?.makeKeyAndVisible()
+                }
+            })
+        }
+        
         return true
     }
 
@@ -40,6 +63,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        FireBaseHelper.sharedInstance.signOut { (error) in
+            if error == nil {
+                print("User has sign out")
+            } else {
+                print("Some problem has occured \(String(describing: error))")
+            }
+            
+        }
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 

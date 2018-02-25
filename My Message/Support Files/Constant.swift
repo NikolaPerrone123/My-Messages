@@ -15,3 +15,9 @@ let userImagePath : String = "userImages/"
 // Controller ID
 let contactInfoVC = "contactInfoVC"
 let homeVC = "homeVC"
+let loginVC = "loginVC"
+let startUpVC = "startUpVC"
+
+//UserDefaults
+let userEmail = "userEmail"
+let userPassword = "userPassword"

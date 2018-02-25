@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="My_Message" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="BYZ-38-t0r" customClass="LoginViewController" customModule="My_Message" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -264,7 +264,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.95513194800000001" green="0.81108957530000003" blue="0.50265443330000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="s2S-Xl-FnS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="s2S-Xl-FnS">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s2S-Xl-FnS" id="q0y-jq-gKk">
@@ -301,14 +301,30 @@
                     <view key="view" contentMode="scaleToFill" id="DC2-Aw-SlZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkR-pt-Ce8">
+                                <rect key="frame" x="16" y="534" width="351" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.57393461469999996" green="0.56602925059999998" blue="0.0042584044860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOut:" destination="dJt-xh-br2" eventType="touchUpInside" id="z7g-eB-Cu6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="VxK-1J-sLM"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="fEO-IT-80s"/>
+                    <connections>
+                        <outlet property="signOutButton" destination="UkR-pt-Ce8" id="Q7m-JM-oax"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pDO-5z-cKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3123" y="1121"/>
+            <point key="canvasLocation" x="3122.4000000000001" y="1120.3898050974515"/>
         </scene>
         <!--Contact-->
         <scene sceneID="FFa-C0-YJc">
@@ -500,6 +516,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jp2-0h-NhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-174" y="81"/>
+        </scene>
+        <!--Start Up View Controller-->
+        <scene sceneID="2Ue-wx-wZs">
+            <objects>
+                <viewController storyboardIdentifier="startUpVC" id="Ktm-wh-fUX" customClass="StartUpViewController" customModule="My_Message" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="startUpVC" id="bcf-pV-Iv1" customClass="Start">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x33-Vo-I6p">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="0.30201198630136988" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="x33-Vo-I6p" firstAttribute="bottom" secondItem="6NT-IW-qeh" secondAttribute="bottom" id="5h0-Z2-iba"/>
+                            <constraint firstItem="x33-Vo-I6p" firstAttribute="top" secondItem="bcf-pV-Iv1" secondAttribute="top" id="8jk-5R-O0c"/>
+                            <constraint firstItem="x33-Vo-I6p" firstAttribute="leading" secondItem="6NT-IW-qeh" secondAttribute="leading" id="a5X-F1-AtA"/>
+                            <constraint firstItem="x33-Vo-I6p" firstAttribute="trailing" secondItem="6NT-IW-qeh" secondAttribute="trailing" id="cyo-6v-S7l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6NT-IW-qeh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ywn-rB-8vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186.40000000000001" y="733.5832083958021"/>
         </scene>
     </scenes>
     <resources>

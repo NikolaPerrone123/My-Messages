@@ -17,12 +17,13 @@ class ContactsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     fileprivate let refreshControl = UIRefreshControl()
     fileprivate let cellIdentifier = "contacntsCellIdentifier"
     fileprivate let contactCellIdentifier = "contactCellIdentifier"
+    fileprivate var overly = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getUserFromDB()
         setViews()
+        getUserFromDB()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +32,7 @@ class ContactsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     // MARK - SetViews
     func setViews(){
+        overly = Utilites.setOverly(view: self.view)
         setTable()
     }
     
@@ -89,21 +91,27 @@ class ContactsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @objc func getUserFromDB(){
         removeArray()
         SVProgressHUD.show()
+        
+        Utilites.showOverly(isOverlay: true, view : overly)
         FireBaseHelper.sharedInstance.getUsers { (error, users) in
             if error == nil {
                 SVProgressHUD.dismiss()
+                Utilites.showOverly(isOverlay: false, view : self.overly)
                 self.refreshControl.endRefreshing()
                 for user in users! {
                     if user.isUserHasImage {
                         SVProgressHUD.show()
+                        Utilites.showOverly(isOverlay: true, view : self.overly)
                         FireBaseHelper.sharedInstance.downloadImage(imageId: user.email, CompletionHandler: { (image, error) in
                             if error == nil {
                                 SVProgressHUD.dismiss()
+                                Utilites.showOverly(isOverlay: false, view : self.overly)
                                 user.image = image!
                                 self.users.append(user)
                                 self.tableView.reloadData()
                             } else {
                                 SVProgressHUD.dismiss()
+                                Utilites.showOverly(isOverlay: false, view : self.overly)
                                 print(error!.localizedDescription)
                             }
                         })
@@ -114,6 +122,7 @@ class ContactsViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 self.tableView.reloadData()
             } else {
                 SVProgressHUD.dismiss()
+                Utilites.showOverly(isOverlay: false, view : self.overly)
                 self.refreshControl.endRefreshing()
                 Utilites.errorAlert(title: "Error", message: error!.localizedDescription, controller: self)
             }

@@ -26,6 +26,8 @@
 		934DA7F1203DCF0F00527F0B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934DA7F0203DCF0F00527F0B /* SignInViewController.swift */; };
 		934DA7F3203DD83300527F0B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934DA7F2203DD83300527F0B /* Constant.swift */; };
 		934DA7F6203DDFA700527F0B /* FireBaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934DA7F5203DDFA700527F0B /* FireBaseHelper.swift */; };
+		936D27B42042F679008D9503 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D27B32042F679008D9503 /* Defaults.swift */; };
+		936D27B62042FC2F008D9503 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D27B52042FC2F008D9503 /* StartUpViewController.swift */; };
 		9FA6CEF09C1F0D360DE94B1C /* Pods_My_Message.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6329FF28AA1511B5D4DA0AD0 /* Pods_My_Message.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		934DA7F0203DCF0F00527F0B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		934DA7F2203DD83300527F0B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		934DA7F5203DDFA700527F0B /* FireBaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseHelper.swift; sourceTree = "<group>"; };
+		936D27B32042F679008D9503 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		936D27B52042FC2F008D9503 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 				8BE3FF4420401998009966B7 /* ContactsViewController.swift */,
 				8BE3FF46204019AA009966B7 /* SettingsViewController.swift */,
 				8BE3FF5320404234009966B7 /* ContactInfoViewController.swift */,
+				936D27B52042FC2F008D9503 /* StartUpViewController.swift */,
 			);
 			path = Contollers;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 			children = (
 				93131D4F20385C9600088155 /* Assets.xcassets */,
 				934DA7F2203DD83300527F0B /* Constant.swift */,
+				936D27B32042F679008D9503 /* Defaults.swift */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE3FF5120403C38009966B7 /* ContactTableViewCell.swift in Sources */,
+				936D27B42042F679008D9503 /* Defaults.swift in Sources */,
 				8BE3FF4D204029F9009966B7 /* ContactsTableViewCell.swift in Sources */,
 				934DA7F1203DCF0F00527F0B /* SignInViewController.swift in Sources */,
 				8BE3FF5420404234009966B7 /* ContactInfoViewController.swift in Sources */,
@@ -337,6 +344,7 @@
 				8BE3FF47204019AA009966B7 /* SettingsViewController.swift in Sources */,
 				8BE3FF412040194F009966B7 /* HomeViewController.swift in Sources */,
 				934DA7EF203DCAB500527F0B /* UserModel.swift in Sources */,
+				936D27B62042FC2F008D9503 /* StartUpViewController.swift in Sources */,
 				8BE3FF4520401998009966B7 /* ContactsViewController.swift in Sources */,
 				934DA7F6203DDFA700527F0B /* FireBaseHelper.swift in Sources */,
 				93131D4920385C9600088155 /* AppDelegate.swift in Sources */,

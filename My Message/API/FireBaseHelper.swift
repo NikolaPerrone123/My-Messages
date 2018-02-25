@@ -144,4 +144,15 @@ class FireBaseHelper {
             }
         }
     }
+    
+    // MARK - Sign Out
+    func signOut(CompletionHandler:@escaping(_ error : Error?) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            CompletionHandler(nil)
+        } catch {
+            let newError = NSError.init(domain: "Some error has occured", code: 404, userInfo: nil)
+            CompletionHandler(newError)
+        }
+    }
 }

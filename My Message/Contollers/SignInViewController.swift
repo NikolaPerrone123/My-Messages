@@ -21,6 +21,8 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var signUpButton: UIButton!
     
     fileprivate var imageData = Data()
+    fileprivate var user = UserModel()
+    fileprivate var isImageChoosen = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +33,17 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func SignIn(_ sender: Any) {
         SVProgressHUD.show()
-        let user = UserModel(name: self.nameTextFiled.text!, surname: self.surnameTextFiled.text!, userName: self.userNameTextField.text!, email: self.emailTextField.text!)
-        FireBaseHelper.sharedInstance.createUser(email: emailTextField.text!, password: passwordTextField.text!, parm: user.userToDictionary()) { (error) in
+        user = UserModel(name: self.nameTextFiled.text!, surname: self.surnameTextFiled.text!, userName: self.userNameTextField.text!, email: self.emailTextField.text!, img : isImageChoosen == true ? userImage.image : nil, isUserHasImage : isImageChoosen == true ? true : false)
+        FireBaseHelper.sharedInstance.createUser(email: emailTextField.text!, password: passwordTextField.text!, userModel: user) { (error) in
             if error == nil {
                 // Move to next Screen
                 SVProgressHUD.dismiss()
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: homeVC)
+                self.navigationController?.pushViewController(vc!, animated: true)
             } else {
                 // Show pop up
                 SVProgressHUD.dismiss()
+                Utilites.errorAlert(title: "Error", message: error!.localizedDescription, controller: self)
             }
         }
     }
@@ -48,8 +53,8 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
         if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             userImage.contentMode = .scaleAspectFit
             userImage.image = chosenImage
-            imageData = UIImageJPEGRepresentation(userImage.image!, 0.8)!
-            uplaodImage()
+            user.image = userImage.image!
+            isImageChoosen = true
         }
         dismiss(animated:true, completion: nil)
     }

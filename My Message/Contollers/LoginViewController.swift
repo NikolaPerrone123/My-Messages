@@ -22,17 +22,9 @@ class LoginViewController: UIViewController {
      
         Utilites.buttonWithRadius(button: loginButton)
         
-//        let vc = storyboard?.instantiateViewController(withIdentifier: homeVC)
-//        self.navigationController?.pushViewController(vc!, animated: true)
-
-        FireBaseHelper.sharedInstance.getUserByEmail(email: "djoledjokic@live.com") { (error, model) in
-            if error == nil {
-                print(model as UserModel)
-            } else {
-                print(error as Any)
-            }
-        }
         
+//      let vc = storyboard?.instantiateViewController(withIdentifier: homeVC)
+//      self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func login(_ sender: Any) {
@@ -41,7 +33,9 @@ class LoginViewController: UIViewController {
             if error == nil {
                 // Next page
                 SVProgressHUD.dismiss()
-            
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: homeVC)
+                self.navigationController?.pushViewController(vc!, animated: true)
+
             } else {
                 // UIAlert error
                 SVProgressHUD.dismiss()

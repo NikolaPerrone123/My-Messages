@@ -7,22 +7,21 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ContactsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var users = [UserModel]()
+    fileprivate let refreshControl = UIRefreshControl()
     fileprivate let cellIdentifier = "contacntsCellIdentifier"
     fileprivate let contactCellIdentifier = "contactCellIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        for user in 0 ... 10 {
-            users.append(UserModel(name: "Pera", surname: "Peric", userName: "<#T##String#>", email: "<#T##String#>"))
-        }
+        getUserFromDB()
         setViews()
     }
     
@@ -42,6 +41,8 @@ class ContactsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.tableView.estimatedSectionHeaderHeight = 100
         self.tableView.register(UINib.init(nibName: "ContactsTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.tableView.register(UINib.init(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: contactCellIdentifier)
+        self.refreshControl.addTarget(self, action: #selector(ContactsViewController.getUserFromDB), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
         self.tableView.separatorColor = UIColor.black
     }
     
@@ -57,6 +58,9 @@ class ContactsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! ContactsTableViewCell
         cell.selectionStyle = .none
+        let user = users[indexPath.row]
+        cell.userImage.image = user.isUserHasImage ? user.image : #imageLiteral(resourceName: "user-128")
+        cell.name.text = user.name
         return cell
     }
     
@@ -75,7 +79,49 @@ class ContactsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     // MARK - TableView Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: contactInfoVC)
-        self.navigationController?.pushViewController(vc!, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: contactInfoVC) as! ContactInfoViewController
+        let user = users[indexPath.row]
+        vc.user = user
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK - API
+    @objc func getUserFromDB(){
+        removeArray()
+        SVProgressHUD.show()
+        FireBaseHelper.sharedInstance.getUsers { (error, users) in
+            if error == nil {
+                SVProgressHUD.dismiss()
+                self.refreshControl.endRefreshing()
+                for user in users! {
+                    if user.isUserHasImage {
+                        SVProgressHUD.show()
+                        FireBaseHelper.sharedInstance.downloadImage(imageId: user.email, CompletionHandler: { (image, error) in
+                            if error == nil {
+                                SVProgressHUD.dismiss()
+                                user.image = image!
+                                self.users.append(user)
+                                self.tableView.reloadData()
+                            } else {
+                                SVProgressHUD.dismiss()
+                                print(error!.localizedDescription)
+                            }
+                        })
+                    } else {
+                        self.users.append(user)
+                    }
+                }
+                self.tableView.reloadData()
+            } else {
+                SVProgressHUD.dismiss()
+                self.refreshControl.endRefreshing()
+                Utilites.errorAlert(title: "Error", message: error!.localizedDescription, controller: self)
+            }
+        }
+    }
+    
+    // MARK - Methods
+    func removeArray(){
+        users.removeAll()
     }
 }

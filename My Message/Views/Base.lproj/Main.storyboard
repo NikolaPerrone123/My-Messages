@@ -264,7 +264,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.95513194800000001" green="0.81108957530000003" blue="0.50265443330000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="s2S-Xl-FnS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="s2S-Xl-FnS">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s2S-Xl-FnS" id="q0y-jq-gKk">
@@ -379,7 +379,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="fYf-Cn-Zah"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -402,11 +401,11 @@
                                     <constraint firstItem="Xhl-NT-7iX" firstAttribute="trailing" secondItem="N20-uC-xyx" secondAttribute="trailing" constant="-14" id="PUn-nu-T0b"/>
                                     <constraint firstItem="aCS-Mt-QQM" firstAttribute="centerY" secondItem="ZcA-eb-ttk" secondAttribute="centerY" id="Rof-an-pDR"/>
                                     <constraint firstItem="hYD-WM-G7K" firstAttribute="top" secondItem="xnz-be-I90" secondAttribute="top" constant="16" id="S3D-gS-aTP"/>
-                                    <constraint firstAttribute="bottom" secondItem="buR-DD-9cJ" secondAttribute="bottom" constant="32" id="SzA-Vp-TAD"/>
                                     <constraint firstItem="Xhl-NT-7iX" firstAttribute="centerX" secondItem="crS-u6-hGM" secondAttribute="centerX" id="TOP-cW-Lac"/>
                                     <constraint firstItem="aCS-Mt-QQM" firstAttribute="leading" secondItem="ZcA-eb-ttk" secondAttribute="trailing" constant="16" id="TZW-ci-kEG"/>
                                     <constraint firstItem="N20-uC-xyx" firstAttribute="centerY" secondItem="Enz-SW-YDx" secondAttribute="centerY" id="ZUk-Vs-1fv"/>
                                     <constraint firstAttribute="trailing" secondItem="buR-DD-9cJ" secondAttribute="trailing" constant="22" id="cWw-2N-h6k"/>
+                                    <constraint firstAttribute="bottom" secondItem="buR-DD-9cJ" secondAttribute="bottom" constant="32" id="f1R-9Q-wVz"/>
                                     <constraint firstItem="M4Q-0v-9JB" firstAttribute="centerY" secondItem="hYD-WM-G7K" secondAttribute="centerY" id="ix1-lA-ikW"/>
                                     <constraint firstItem="Enz-SW-YDx" firstAttribute="leading" secondItem="xnz-be-I90" secondAttribute="leading" id="jy9-It-Skg"/>
                                     <constraint firstItem="xnz-be-I90" firstAttribute="top" secondItem="crS-u6-hGM" secondAttribute="top" constant="63" id="kEb-iU-4wu"/>

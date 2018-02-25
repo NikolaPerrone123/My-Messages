@@ -16,6 +16,7 @@ class UserModel {
     var email : String!
     var password : String!
     var image : UIImage!
+    var isUserHasImage : Bool = false
     
     init() {
         self.name = ""
@@ -24,11 +25,13 @@ class UserModel {
         self.email = ""
     }
     
-    init(name : String, surname : String, userName : String, email : String) {
+    init(name : String, surname : String, userName : String, email : String, img: UIImage?, isUserHasImage : Bool) {
         self.name = name
         self.surname = surname
         self.userName = userName
         self.email = email
+        self.image = img
+        self.isUserHasImage = isUserHasImage
     }
     
     func userToDictionary() -> NSDictionary {
@@ -37,6 +40,7 @@ class UserModel {
         mutableDictionary.setValue(surname, forKey: "surname")
         mutableDictionary.setValue(userName, forKey: "username")
         mutableDictionary.setValue(email, forKey: "email")
+        mutableDictionary.setValue(isUserHasImage, forKey: "isUserHasImage")
         return mutableDictionary.copy() as! NSDictionary
     }
     
@@ -45,6 +49,11 @@ class UserModel {
         self.surname = dictionary.value(forKey: "surname") as? String ?? ""
         self.userName = dictionary.value(forKey: "username") as? String ?? ""
         self.email = dictionary.value(forKey: "email") as? String ?? ""
-        print(self.email)
+        self.isUserHasImage = dictionary.value(forKey: "isUserHasImage") as? Bool ?? false
+        print("surname: \(self.surname)" )
+        print("name: \(self.name)" )
+        print("email: \(self.email)" )
+        print("username: \(self.userName)" )
+        print("isUserHasImage: \(self.isUserHasImage)")
     }
 }

@@ -8,7 +8,8 @@
 
 import Foundation
 
-let userChild : String = "User"
+// Firebase key
+let userTable : String = "User"
 let userImagePath : String = "userImages/"
 
 // Controller ID

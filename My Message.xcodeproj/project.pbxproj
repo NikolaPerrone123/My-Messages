@@ -35,6 +35,7 @@
 		2D7DA94DAEC79BAC069DF1DB /* Pods-My Message.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Message.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Message/Pods-My Message.release.xcconfig"; sourceTree = "<group>"; };
 		4201BAD7F2CD824AA213BF26 /* Pods-My Message.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Message.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Message/Pods-My Message.debug.xcconfig"; sourceTree = "<group>"; };
 		6329FF28AA1511B5D4DA0AD0 /* Pods_My_Message.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Message.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8FA27320441F180077E93C /* My Message.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Message.entitlements"; sourceTree = "<group>"; };
 		8BADC613204059A900903803 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8BE3FF402040194F009966B7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BE3FF4420401998009966B7 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		93131D4720385C9600088155 /* My Message */ = {
 			isa = PBXGroup;
 			children = (
+				8B8FA27320441F180077E93C /* My Message.entitlements */,
 				8BFC43C4203EB42E00A0C3AF /* Utilities */,
 				934DA7EC203DAA2200527F0B /* Support Files */,
 				934DA7F4203DDF8500527F0B /* API */,
@@ -228,6 +230,14 @@
 					93131D4420385C9600088155 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -486,12 +496,13 @@
 			baseConfigurationReference = 4201BAD7F2CD824AA213BF26 /* Pods-My Message.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "My Message/My Message.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 44E7YEX743;
+				DEVELOPMENT_TEAM = RR943Z63UP;
 				INFOPLIST_FILE = "My Message/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Nikola-Popovic.My-Message";
+				PRODUCT_BUNDLE_IDENTIFIER = "mymessage.My-Message";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -503,12 +514,13 @@
 			baseConfigurationReference = 2D7DA94DAEC79BAC069DF1DB /* Pods-My Message.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "My Message/My Message.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 44E7YEX743;
+				DEVELOPMENT_TEAM = RR943Z63UP;
 				INFOPLIST_FILE = "My Message/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Nikola-Popovic.My-Message";
+				PRODUCT_BUNDLE_IDENTIFIER = "mymessage.My-Message";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

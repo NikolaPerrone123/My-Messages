@@ -23,7 +23,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
      
         Utilites.buttonWithRadius(button: loginButton)
-        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: homeVC)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func login(_ sender: Any) {

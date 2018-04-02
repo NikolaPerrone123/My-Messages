@@ -23,5 +23,4 @@ class HomeViewController: UIViewController {
     func setViews(){
         
     }
-    
 }

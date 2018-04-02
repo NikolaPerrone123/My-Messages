@@ -23,11 +23,17 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
      
         Utilites.buttonWithRadius(button: loginButton)
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: homeVC)
-        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func login(_ sender: Any) {
+        login()
+    }
+}
+
+// MARK: API
+extension LoginViewController {
+    
+    func login(){
         SVProgressHUD.show()
         let overly = Utilites.setOverly(view: self.view)
         Utilites.showOverly(isOverlay: true, view: overly)
@@ -39,7 +45,7 @@ class LoginViewController: UIViewController {
                 Defaults.setEmailPassword(email: self.emailTextField.text!, pass: self.passwordTextFiled.text!)
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: homeVC)
                 self.navigationController?.pushViewController(vc!, animated: true)
-
+                
             } else {
                 // UIAlert error
                 SVProgressHUD.dismiss()
@@ -49,6 +55,5 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
 }
 

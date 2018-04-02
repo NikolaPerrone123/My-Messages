@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class SignInViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SignInViewController: UIViewController {
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var nameTextFiled: UITextField!
@@ -38,27 +38,24 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func SignIn(_ sender: Any) {
-        SVProgressHUD.show()
-        Utilites.showOverly(isOverlay: true, view: overly)
-        user = UserModel(name: self.nameTextFiled.text!, surname: self.surnameTextFiled.text!, userName: self.userNameTextField.text!, email: self.emailTextField.text!, img : isImageChoosen == true ? userImage.image : nil, isUserHasImage : isImageChoosen == true ? true : false)
-        FireBaseHelper.sharedInstance.createUser(email: emailTextField.text!, password: passwordTextField.text!, userModel: user) { (error) in
-            if error == nil {
-                // Move to next Screen
-                SVProgressHUD.dismiss()
-                Utilites.showOverly(isOverlay: false, view: self.overly)
-                Defaults.setEmailPassword(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: homeVC)
-                self.navigationController?.pushViewController(vc!, animated: true)
-            } else {
-                // Show pop up
-                SVProgressHUD.dismiss()
-                Utilites.showOverly(isOverlay: false, view: self.overly)
-                Utilites.errorAlert(title: "Error", message: error!.localizedDescription, controller: self)
-            }
-        }
+        signIn()
     }
     
-    // MARK - Delegate picker contorller
+    // MARK: UITapGestureRecognizer for image
+    func setGestureForImage(){
+        userImage.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.chooseImage(_:)))
+        userImage.addGestureRecognizer(gesture)
+    }
+    
+    @objc func chooseImage(_ sender: UITapGestureRecognizer){
+        popUpForImagePicker()
+    }
+}
+
+// MARK: UIImagePickerDelegate
+extension SignInViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             userImage.contentMode = .scaleAspectFit
@@ -71,17 +68,6 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    // MARK - UITapGestureRecognizer for image
-    func setGestureForImage(){
-        userImage.isUserInteractionEnabled = true
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.chooseImage(_:)))
-        userImage.addGestureRecognizer(gesture)
-    }
-    
-    @objc func chooseImage(_ sender: UITapGestureRecognizer){
-        popUpForImagePicker()
     }
     
     func popUpForImagePicker() {
@@ -111,10 +97,13 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
         popUp.addAction(cancelAction)
         present(popUp, animated: true, completion: nil)
     }
+}
+
+// MARK: API
+extension SignInViewController {
     
-    // MARK - Upload image
     func uplaodImage(){
-        let nsId = NSUUID()
+        //let nsId = NSUUID()
         SVProgressHUD.show()
         FireBaseHelper.sharedInstance.uploadImage(image: imageData, imageName: "newImage") { (error) in
             if error == nil {
@@ -122,6 +111,27 @@ class SignInViewController: UIViewController, UIImagePickerControllerDelegate, U
             } else {
                 SVProgressHUD.dismiss()
                 Utilites.errorAlert(title: "Error", message: "Can not upload image, try later", controller: self)
+            }
+        }
+    }
+    
+    func signIn(){
+        SVProgressHUD.show()
+        Utilites.showOverly(isOverlay: true, view: overly)
+        user = UserModel(name: self.nameTextFiled.text!, surname: self.surnameTextFiled.text!, userName: self.userNameTextField.text!, email: self.emailTextField.text!, img : isImageChoosen == true ? userImage.image : nil, isUserHasImage : isImageChoosen == true ? true : false)
+        FireBaseHelper.sharedInstance.createUser(email: emailTextField.text!, password: passwordTextField.text!, userModel: user) { (error) in
+            if error == nil {
+                // Move to next Screen
+                SVProgressHUD.dismiss()
+                Utilites.showOverly(isOverlay: false, view: self.overly)
+                Defaults.setEmailPassword(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: homeVC)
+                self.navigationController?.pushViewController(vc!, animated: true)
+            } else {
+                // Show pop up
+                SVProgressHUD.dismiss()
+                Utilites.showOverly(isOverlay: false, view: self.overly)
+                Utilites.errorAlert(title: "Error", message: error!.localizedDescription, controller: self)
             }
         }
     }

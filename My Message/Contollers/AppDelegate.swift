@@ -20,27 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        let emailDefaults = Defaults.getEmail()
-        let passDefaults = Defaults.getPassword()
-        
-        
-        if let email = emailDefaults, let pass = passDefaults {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            self.window?.rootViewController = storyBoard.instantiateViewController(withIdentifier: startUpVC)
-            self.window?.makeKeyAndVisible()
-                FireBaseHelper.sharedInstance.logIn(email: email, password: pass, CompletionHandler: { (error) in
-                
-                if error == nil {
-                    let vc = storyBoard.instantiateViewController(withIdentifier: homeVC)
-                    self.window?.rootViewController = vc
-                    self.window?.makeKeyAndVisible()
-                } else {
-                    let vc = storyBoard.instantiateViewController(withIdentifier: loginVC)
-                    self.window?.rootViewController = vc
-                    self.window?.makeKeyAndVisible()
-                }
-            })
-        }
+        presentPage()
         registerForPushNotification()
         
         if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
@@ -85,6 +65,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func presentPage(){
+        let emailDefaults = Defaults.getEmail()
+        let passDefaults = Defaults.getPassword()
+        
+        
+        if let email = emailDefaults, let pass = passDefaults {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            self.window?.rootViewController = storyBoard.instantiateViewController(withIdentifier: startUpVC)
+            self.window?.makeKeyAndVisible()
+            FireBaseHelper.sharedInstance.logIn(email: email, password: pass, CompletionHandler: { (error) in
+                
+                if error == nil {
+                    let vc = storyBoard.instantiateViewController(withIdentifier: homeVC)
+                    self.window?.rootViewController = vc
+                    self.window?.makeKeyAndVisible()
+                } else {
+                    let vc = storyBoard.instantiateViewController(withIdentifier: loginVC)
+                    self.window?.rootViewController = vc
+                    self.window?.makeKeyAndVisible()
+                }
+            })
+        }
+    }
+}
+
+// MARK: Push Notification
+extension AppDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
     }
@@ -103,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register: \(error)")
     }
-
+    
     
     func registerForPushNotification () {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
@@ -125,6 +132,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplication.shared.registerForRemoteNotifications()
         }
     }
-
 }
 
